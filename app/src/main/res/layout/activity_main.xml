@@ -186,7 +186,7 @@
             android:layout_marginRight="1dp"
             android:layout_marginBottom="1dp"
             android:layout_marginLeft="1dp"
-            android:onClick="onDigit"/>
+            android:onClick="onDecimalPoint"/>
 
         <Button
             android:id="@+id/btnZero"
