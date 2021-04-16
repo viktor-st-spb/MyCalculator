@@ -19,11 +19,13 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
     }
 
+    /**** Digit buttons onClickListener ****/
     fun onDigit(view: View) {
         tvInput.append((view as Button).text)
         lastNumeric = true
     }
 
+    /**** CLR button onClickListener ****/
     fun onClear (view: View){
         tvInput.text = ""
         //Restore initial state of helper variables
@@ -31,12 +33,35 @@ class MainActivity : AppCompatActivity() {
         lastDot = false
     }
 
+
+    /**** Decimal point button onClickListener ****/
     fun onDecimalPoint(view: View) {
         //Check whether the last pressed button was numeric
         if (lastNumeric && !lastDot) {
             tvInput.append(".")
             lastNumeric = false
             lastDot = true
+        }
+    }
+
+    /**** Operator buttons onClickListener ****/
+    fun onOperator(view: View){
+        if (lastNumeric && !isOperatorAdded(tvInput.text.toString())){
+            tvInput.append((view as Button).text)
+            lastNumeric = false
+            lastDot = false
+        }
+    }
+
+    /**** Check whether pressed button is operator one ****/
+    private fun isOperatorAdded(value: String) : Boolean {
+        //Check whether the string starts with 'minus'
+        return if (value.startsWith("-")){
+            false
+        } else {
+            //check whether the string contains / or * or + or - sign
+            value.contains("/") || value.contains("*") ||
+                    value.contains("+") || value.contains("-")
         }
     }
 }

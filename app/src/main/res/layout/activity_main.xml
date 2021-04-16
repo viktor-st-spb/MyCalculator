@@ -63,7 +63,7 @@
             android:layout_marginRight="1dp"
             android:layout_marginBottom="1dp"
             android:layout_marginLeft="1dp"
-            android:onClick="onDigit"/>
+            android:onClick="onOperator"/>
 
     </LinearLayout>
     <!-- Row 2 -->
@@ -115,7 +115,7 @@
             android:layout_marginRight="1dp"
             android:layout_marginBottom="1dp"
             android:layout_marginLeft="1dp"
-            android:onClick="onDigit"/>
+            android:onClick="onOperator"/>
 
     </LinearLayout>
     <!-- Row 3 -->
@@ -167,7 +167,7 @@
             android:layout_marginRight="1dp"
             android:layout_marginBottom="1dp"
             android:layout_marginLeft="1dp"
-            android:onClick="onDigit"/>
+            android:onClick="onOperator"/>
 
     </LinearLayout>
     <!-- Row 4 -->
@@ -219,7 +219,7 @@
             android:layout_marginRight="1dp"
             android:layout_marginBottom="1dp"
             android:layout_marginLeft="1dp"
-            android:onClick="onDigit"/>
+            android:onClick="onOperator"/>
 
     </LinearLayout>
     <!-- Row 5 -->
