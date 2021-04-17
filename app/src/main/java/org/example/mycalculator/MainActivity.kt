@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     /**** CLR button onClickListener ****/
-    fun onClear() {
+    fun onClear(view: View) {
         tvInput.text = ""
         //Restore initial state of helper variables
         lastNumeric = false
@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     /**** Decimal point button onClickListener ****/
-    fun onDecimalPoint() {
+    fun onDecimalPoint(view: View) {
         //Check whether the last pressed button was numeric
         if (lastNumeric && !lastDot) {
             tvInput.append(".")
@@ -67,8 +67,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     /**** Equal (=) button onClickListener ****/
-    @SuppressLint("SetTextI18n")
-    fun onEqual() {
+ //   @SuppressLint("SetTextI18n")
+    fun onEqual(view: View) {
         //Check if the entered value is numeric (not an operator)
         if(lastNumeric){
             //Transfer the entered data (tvInput) to String
@@ -93,7 +93,7 @@ class MainActivity : AppCompatActivity() {
                     var one = splitValue[0]    //left part
                     val two = splitValue[1]    //right part
 
-                    if (prefix.isNotEmpty()){
+                    if (!prefix.isEmpty()){
                         one = prefix + one
                     }
 
@@ -110,7 +110,7 @@ class MainActivity : AppCompatActivity() {
                     var one = splitValue[0]    //left part
                     val two = splitValue[1]    //right part
 
-                    if (prefix.isNotEmpty()){
+                    if (!prefix.isEmpty()){
                         one = prefix + one
                     }
 
@@ -127,7 +127,7 @@ class MainActivity : AppCompatActivity() {
                     var one = splitValue[0]    //left part
                     val two = splitValue[1]    //right part
 
-                    if (prefix.isNotEmpty()){
+                    if (!prefix.isEmpty()){
                         one = prefix + one
                     }
 
@@ -144,7 +144,7 @@ class MainActivity : AppCompatActivity() {
                     var one = splitValue[0]    //left part
                     val two = splitValue[1]    //right part
 
-                    if (prefix.isNotEmpty()){
+                    if (!prefix.isEmpty()){
                         one = prefix + one
                     }
 
@@ -158,7 +158,6 @@ class MainActivity : AppCompatActivity() {
             }catch (e: ArithmeticException){
                 e.printStackTrace()
             }
-
         }
     }
 
