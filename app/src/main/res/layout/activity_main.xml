@@ -13,7 +13,10 @@
         android:layout_height="250dp"
         android:background="#EFEFEF"
         android:textSize="48sp"
-        android:maxLength="12"/>  <!-- 12 digit length -->
+        android:padding="10dp"
+        android:gravity="right|bottom|center_vertical"
+        android:maxLength="12"
+        tools:ignore="RtlHardcoded" />  <!-- 12 digit length -->
     <!-- Row 1 -->
     <LinearLayout
         android:layout_width="match_parent"

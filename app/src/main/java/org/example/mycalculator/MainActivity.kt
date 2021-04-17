@@ -95,11 +95,11 @@ class MainActivity : AppCompatActivity() {
                         one = prefix + one
                     }
 
-                    tvInput.text = (one.toDouble() - two.toDouble()).toString()
+                    tvInput.text = removeLastZeroAndDot((one.toDouble() - two.toDouble()).toString())
                 }
 
                 /**** Check whether pressed button is "+" button ****/
-                if(tvValue.contains("+")){
+                else if(tvValue.contains("+")){
                     //Split thr string into two parts:
                     //to the left of "+" and
                     //to the right of "+"
@@ -112,11 +112,11 @@ class MainActivity : AppCompatActivity() {
                         one = prefix + one
                     }
 
-                    tvInput.text = (one.toDouble() + two.toDouble()).toString()
+                    tvInput.text = removeLastZeroAndDot((one.toDouble() + two.toDouble()).toString())
                 }
 
                 /**** Check whether pressed button is "*" button ****/
-                if(tvValue.contains("*")){
+                else if(tvValue.contains("*")){
                     //Split thr string into two parts:
                     //to the left of "*" and
                     //to the right of "*"
@@ -129,11 +129,11 @@ class MainActivity : AppCompatActivity() {
                         one = prefix + one
                     }
 
-                    tvInput.text = (one.toDouble() * two.toDouble()).toString()
+                    tvInput.text = removeLastZeroAndDot((one.toDouble() * two.toDouble()).toString())
                 }
 
                 /**** Check whether pressed button is "/" button ****/
-                if(tvValue.contains("/")){
+                else if(tvValue.contains("/")){
                     //Split thr string into two parts:
                     //to the left of "/" and
                     //to the right of "/"
@@ -150,13 +150,24 @@ class MainActivity : AppCompatActivity() {
                     if (two.toDouble() == 0.0){
                         tvInput.text = "INFINITY"
                     } else {
-                        tvInput.text = (one.toDouble() / two.toDouble()).toString()
+                        tvInput.text = removeLastZeroAndDot((one.toDouble() / two.toDouble()).toString())
                     }
                 }
             }catch (e: ArithmeticException){
                 e.printStackTrace()
             }
 
+        }
+    }
+
+    /**** Check whether the only digit after the decimal point ****/
+    /****  is zero and delete that zero and the decimal point  ****/
+    private fun removeLastZeroAndDot(result : String) : String{
+        return if(result.contains(".0") &&
+            result.split(".")[1] == "0"){
+            result.split(".")[0]
+        } else {
+            result
         }
     }
 }
