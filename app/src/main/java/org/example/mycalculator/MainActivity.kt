@@ -1,5 +1,6 @@
 package org.example.mycalculator
 
+import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -11,9 +12,9 @@ class MainActivity : AppCompatActivity() {
 
        /******** Helper Variables ********/
     //Whether the last presses button is numeric
-    var lastNumeric : Boolean = false
+       private var lastNumeric : Boolean = false
     //Whether the last presses button is decimal point
-    var lastDot : Boolean = false
+    private var lastDot : Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,7 +28,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     /**** CLR button onClickListener ****/
-    fun onClear (view: View){
+    fun onClear() {
         tvInput.text = ""
         //Restore initial state of helper variables
         lastNumeric = false
@@ -35,7 +36,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     /**** Decimal point button onClickListener ****/
-    fun onDecimalPoint(view: View) {
+    fun onDecimalPoint() {
         //Check whether the last pressed button was numeric
         if (lastNumeric && !lastDot) {
             tvInput.append(".")
@@ -66,7 +67,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     /**** Equal (=) button onClickListener ****/
-    fun onEqual(view: View){
+    @SuppressLint("SetTextI18n")
+    fun onEqual() {
         //Check if the entered value is numeric (not an operator)
         if(lastNumeric){
             //Transfer the entered data (tvInput) to String
@@ -89,9 +91,9 @@ class MainActivity : AppCompatActivity() {
                     val splitValue = tvValue.split("-")
 
                     var one = splitValue[0]    //left part
-                    var two = splitValue[1]    //right part
+                    val two = splitValue[1]    //right part
 
-                    if (!prefix.isEmpty()){
+                    if (prefix.isNotEmpty()){
                         one = prefix + one
                     }
 
@@ -106,9 +108,9 @@ class MainActivity : AppCompatActivity() {
                     val splitValue = tvValue.split("+")
 
                     var one = splitValue[0]    //left part
-                    var two = splitValue[1]    //right part
+                    val two = splitValue[1]    //right part
 
-                    if (!prefix.isEmpty()){
+                    if (prefix.isNotEmpty()){
                         one = prefix + one
                     }
 
@@ -123,9 +125,9 @@ class MainActivity : AppCompatActivity() {
                     val splitValue = tvValue.split("*")
 
                     var one = splitValue[0]    //left part
-                    var two = splitValue[1]    //right part
+                    val two = splitValue[1]    //right part
 
-                    if (!prefix.isEmpty()){
+                    if (prefix.isNotEmpty()){
                         one = prefix + one
                     }
 
@@ -140,9 +142,9 @@ class MainActivity : AppCompatActivity() {
                     val splitValue = tvValue.split("/")
 
                     var one = splitValue[0]    //left part
-                    var two = splitValue[1]    //right part
+                    val two = splitValue[1]    //right part
 
-                    if (!prefix.isEmpty()){
+                    if (prefix.isNotEmpty()){
                         one = prefix + one
                     }
 
